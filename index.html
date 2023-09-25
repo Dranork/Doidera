@@ -81,14 +81,32 @@
         .button-17:disabled {
             box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
         }
+
+        body {
+            background-color: black;
+        }
+
+        .container {
+            height: 200px;
+            position: relative;
+        }
+
+        .center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
     </style>
 </head>
 
 <body>
-    <div>
-        <h1>Texto muito legal e bacana</h1>
-        <p>Texto menor mas legal e bacana</p>
-        <button class="button-17" role="button" onclick="pipi()">Clique aqui</button>
+    <div class="container">
+        <div class="center">
+            <button class="button-17" role="button" onclick="pipi()">Clique aqui</button>
+        </div>
     </div>
     <script>
         function pipi() {
@@ -97,5 +115,4 @@
         }
     </script>
 </body>
-
 </html>
