@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peidei</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #textoCentralizado {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #botoesContainer {
+            display: flex;
+            gap: 10px;
+        }
+
+        .botao {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="peidante">
+
+        <div id="textoCentralizado">
+            <h1>Peido pesa?</h1>
+        </div>
+
+        <div id="botoesContainer">
+            <button onclick="Sim()" class="botao">Sim</button>
+            <button class="botao">Não</button>
+        </div>
+    </div>
+
+    <h1 id="textoLegal"></h1>
+
+    <script>
+        const textoOriginal = "Então acho que me caguei!";
+        var index = 0;
+
+        function Sim() {
+            var textoDigitadoElement = document.getElementById("textoLegal")
+            document.getElementById("peidante").innerHTML = "";
+            textoDigitadoElement.textContent += textoOriginal[index];
+
+            // Move a "barra de digitação" para a direita
+            textoDigitadoElement.style.borderRight = `1px solid #000`;
+
+            // Incrementa o índice para obter o próximo caractere na próxima chamada
+            index++;
+
+            // Se não chegou ao final do texto, continua chamando a função
+            if (index < textoOriginal.length) {
+                setTimeout(Sim, 100);
+            } else {
+                textoDigitadoElement.style.borderRight = `none`;
+            }
+        
+
+        // Inicia o efeito de digitação após um pequeno atraso
+        setTimeout(mostrarTexto, 500);
+        }
+    </script>
+</body>
+
+</html>
